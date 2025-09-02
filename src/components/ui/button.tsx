@@ -18,6 +18,15 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        
+        // NGO & Group Variants
+        "ngo-primary": "bg-ngo-primary text-ngo-primary-foreground hover:bg-ngo-primary-dark shadow-soft",
+        "ngo-outline": "border-2 border-ngo-primary text-ngo-primary bg-background hover:bg-ngo-primary hover:text-ngo-primary-foreground",
+        "hope": "bg-hope text-white hover:bg-hope-light shadow-soft",
+        "compassion": "bg-compassion text-white hover:bg-compassion-light shadow-soft",
+        "group-primary": "bg-group-primary text-group-primary-foreground hover:bg-group-primary/90 shadow-soft",
+        "hero": "bg-gradient-hero text-white hover:shadow-medium transition-all duration-300",
+        "impact": "bg-gradient-impact text-white hover:shadow-medium transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

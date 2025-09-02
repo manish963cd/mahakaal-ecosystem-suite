@@ -24,6 +24,33 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// NGO & Group Brand Colors
+				'ngo-primary': {
+					DEFAULT: 'hsl(var(--ngo-primary))',
+					dark: 'hsl(var(--ngo-primary-dark))',
+					light: 'hsl(var(--ngo-primary-light))',
+					foreground: 'hsl(var(--ngo-primary-foreground))'
+				},
+				'group-primary': {
+					DEFAULT: 'hsl(var(--group-primary))',
+					foreground: 'hsl(var(--group-primary-foreground))'
+				},
+
+				// Impact Colors
+				hope: {
+					DEFAULT: 'hsl(var(--hope))',
+					light: 'hsl(var(--hope-light))'
+				},
+				compassion: {
+					DEFAULT: 'hsl(var(--compassion))',
+					light: 'hsl(var(--compassion-light))'
+				},
+				trust: {
+					DEFAULT: 'hsl(var(--trust))',
+					light: 'hsl(var(--trust-light))'
+				},
+
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -62,6 +89,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-impact': 'var(--gradient-impact)',
+				'gradient-warm': 'var(--gradient-warm)'
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'medium': 'var(--shadow-medium)',
+				'strong': 'var(--shadow-strong)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
