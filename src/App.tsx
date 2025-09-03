@@ -1,12 +1,12 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+
+// Main Pages
+import MainHome from "./pages/MainHome";
 import NotFound from "./pages/NotFound";
 
 // NGO Pages
+import NgoLayout from "./pages/ngo/NgoLayout";
 import NgoHome from "./pages/ngo/NgoHome";
 import NgoAbout from "./pages/ngo/NgoAbout";
 import NgoPrograms from "./pages/ngo/NgoPrograms";
@@ -14,38 +14,50 @@ import NgoDonate from "./pages/ngo/NgoDonate";
 import NgoNews from "./pages/ngo/NgoNews";
 import NgoContact from "./pages/ngo/NgoContact";
 
-// Group Pages
-import GroupAbout from "./pages/group/GroupAbout";
-import Estate from "./pages/estate/Estate";
+// Estate Pages
+import EstateLayout from "./pages/estate/EstateLayout";
+import EstateHome from "./pages/estate/EstateHome";
+import EstateProjects from "./pages/estate/EstateProjects";
+import EstateServices from "./pages/estate/EstateServices";
+import EstateContact from "./pages/estate/EstateContact";
+
+// Components
+import Toast from "./components/Toast";
+import Loader from "./components/Loader";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          
-          {/* Group Routes */}
-          <Route path="/about" element={<GroupAbout />} />
-          <Route path="/estate" element={<Estate />} />
-          
-          {/* NGO Routes */}
-          <Route path="/ngo" element={<NgoHome />} />
-          <Route path="/ngo/about" element={<NgoAbout />} />
-          <Route path="/ngo/programs" element={<NgoPrograms />} />
-          <Route path="/ngo/donate" element={<NgoDonate />} />
-          <Route path="/ngo/news" element={<NgoNews />} />
-          <Route path="/ngo/contact" element={<NgoContact />} />
-          
-          {/* Catch-all route */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <BrowserRouter>
+      <Toast />
+      <Loader />
+      <Routes>
+        {/* Main Parent Route */}
+        <Route path="/" element={<MainHome />} />
+        
+        {/* NGO Child Routes */}
+        <Route path="/ngo" element={<NgoLayout />}>
+          <Route index element={<NgoHome />} />
+          <Route path="about" element={<NgoAbout />} />
+          <Route path="programs" element={<NgoPrograms />} />
+          <Route path="donate" element={<NgoDonate />} />
+          <Route path="news" element={<NgoNews />} />
+          <Route path="contact" element={<NgoContact />} />
+        </Route>
+        
+        {/* Estate Child Routes */}
+        <Route path="/estate" element={<EstateLayout />}>
+          <Route index element={<EstateHome />} />
+          <Route path="projects" element={<EstateProjects />} />
+          <Route path="services" element={<EstateServices />} />
+          <Route path="contact" element={<EstateContact />} />
+        </Route>
+        
+        {/* Catch-all route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 

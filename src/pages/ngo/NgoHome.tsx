@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import { ArrowRight, Heart, Users, BookOpen, Stethoscope, Home } from "lucide-react";
-import ngoHeroImage from "@/assets/ngo-hero.jpg";
-import educationImage from "@/assets/education-program.jpg";
+import ngoHeroImage from "../../assets/ngo-hero.jpg";
+import educationImage from "../../assets/education-program.jpg";
+import Footer from "../../components/shared/Footer";
 
 const NgoHome = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <div className="pt-16">{/* Account for fixed navbar */}
       
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -40,18 +36,20 @@ const NgoHome = () => {
               for underserved communities across India.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="compassion" size="lg" asChild>
-                <Link to="/ngo/donate">
-                  <Heart className="mr-2 h-5 w-5" />
-                  Donate Now
-                </Link>
-              </Button>
-              <Button variant="ngo-outline" size="lg" asChild>
-                <Link to="/ngo/programs" className="bg-white/10 backdrop-blur-sm">
-                  Explore Our Programs
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+              <Link
+                to="/ngo/donate"
+                className="inline-flex items-center px-8 py-4 bg-gradient-warm text-white rounded-lg hover:shadow-medium transition-all duration-300 font-medium"
+              >
+                <Heart className="mr-2 h-5 w-5" />
+                Donate Now
+              </Link>
+              <Link
+                to="/ngo/programs"
+                className="inline-flex items-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 rounded-lg hover:bg-white hover:text-ngo-primary transition-all duration-300 font-medium"
+              >
+                Explore Our Programs
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </div>
           </div>
         </div>
